@@ -1,0 +1,15 @@
+<input
+  style="width: 100%; height: 100%"
+  [formControl]="searchControl"
+  [placeholder]="pholder"
+  (focus)="activeSubscription()"
+  (blur)="deActiveSubscription()"
+/>
+<ul *ngIf="filteredSuggestions.length >= 1">
+  <li
+    *ngFor="let suggestion of filteredSuggestions.slice(0, 8)"
+    (click)="selectSuggestion(suggestion.name)"
+  >
+    {{ suggestion["name"] }}
+  </li>
+</ul>
